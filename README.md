@@ -1,25 +1,47 @@
-# LLM Council
+# Neo LLM Council: Decision Intelligence via Orchestrated Consensus
 
-A modular orchestration framework that queries multiple Large Language Models through OpenRouter to produce higher-quality, consensus-driven answers for complex reasoning tasks.
+Made with [Neo](https://neo.com)
 
----
+The **Neo LLM Council** is a high-impact orchestration system designed to transform raw AI outputs into reliable decision intelligence. By convening a digital "council" of diverse Large Language Models (LLMs), it eliminates the bias and hallucinations inherent in single-model responses, delivering synthesized, high-confidence results for complex real-world reasoning.
+
+## Why Neo LLM Council?
+
+In standard AI environments, organizations often struggle with "model plumbing"—the manual work of connecting multiple APIs and then trying to make sense of conflicting data. **Neo LLM Council** changes this dynamic from technical friction to strategic advantage.
+
+### Built for Higher-Impact Outcomes
+
+- **Seamless Orchestration vs. Manual Plumbing**: Instead of complex custom scripts, Neo LLM Council provides a unified interface to OpenRouter, allowing you to deploy a multi-model strategy in minutes rather than weeks.
+- **High-Impact Consensus over Simple Averaging**: Our system doesn't just average outputs. It uses advanced synthesis strategies to cross-examine viewpoints, surfacing the most robust and accurate insights for critical decision-making.
+- **Resilient Decision Making**: By leveraging the Neo ecosystem, you gain a system that handles API instability and model variance gracefully, ensuring your business continuity isn't dependent on a single model provider.
+- **Verified Transparency**: Every decision made by the Council is traceable. You can see exactly how each member (model) contributed to the final synthesis, providing an audit trail for AI-assisted decisions.
 
 ## Overview
 
-LLM Council acts like a digital roundtable. Multiple models respond to the same query, and the system aggregates their insights using configurable strategies such as synthesis or voting. The result is a more robust and balanced final answer.
+The Neo LLM Council acts as your organization’s digital roundtable. It brings together the world's most advanced models to debate, verify, and resolve complex queries. The result is a robust, balanced final answer that far exceeds the capability of any individual LLM.
 
----
+## Usage with Neo
 
-## Features
+The Neo LLM Council is optimized for the **[Neo VSCode Extension](https://neo.com)**, providing a frictionless deployment experience that bridges the gap between development and production.
 
-- Parallel orchestration of multiple LLMs via OpenRouter
-- Consensus strategies: synthesis and voting
-- OpenAI-compatible client implementation
-- Configurable model list and timeouts
-- Markdown output for easy review and sharing
-- Async architecture for efficient execution
+### Steps to Run:
 
----
+1. **Open in VSCode**: Open the `llm_council` folder in VSCode where the Neo extension is installed.
+2. **Environment Setup**:
+   - Click on the Neo extension icon in the sidebar.
+   - Use Neo to automate the setup: "Neo, set up the virtual environment and install requirements."
+   - Create your `.env` file (Neo can help you populate the `OPENROUTER_API_KEY`).
+3. **Run the Application**:
+   - In the VSCode terminal, run `python main.py`.
+   - Alternatively, ask Neo: "Run the LLM Council with the prompt 'Explain quantum entanglement'."
+4. **View Results**:
+   - Once completed, open `council_answer.md` in the VSCode editor to see the aggregated response.
+
+## Strategic Use Cases
+
+- **Strategic Decision Support**: Cross-validate high-stakes business strategies across multiple reasoning models.
+- **High-Fidelity Research**: Aggregate diverse perspectives to generate comprehensive, unbiased technical and market summaries.
+- **AI Governance & Safety**: Implement model cross-checking to detect hallucinations and ensure output compliance.
+- **Automated Benchmarking**: Instantly compare how different frontier models interpret the same complex logic.
 
 ## Project Structure
 
@@ -28,19 +50,16 @@ llm_council/
 │
 ├── main.py                 # Entry point
 ├── llm_council/
-│   ├── council.py          # Council orchestration logic
 │   ├── config.py           # Environment configuration
-│   ├── engine.py           # Model querying layer
-│   └── models.py           # Data structures
+│   └── engine.py           # Model querying layer
+│
 │
 ├── .env.example            # Example environment variables
 ├── requirements.txt        # Dependencies
 └── README.md
 ```
 
----
-
-## Quick Start
+## Quick Start (Manual)
 
 ### 1. Install Dependencies
 
@@ -48,26 +67,13 @@ llm_council/
 pip install -r requirements.txt
 ```
 
----
-
 ### 2. Configure Environment
 
-Copy the example environment file and update it with your credentials:
-
 ```bash
-cp .env.example .env
+copy .env.example .env
 ```
 
-Edit `.env`:
-
-```env
-OPENROUTER_API_KEY=your_api_key_here
-COUNCIL_MODELS=openai/gpt-4.1-mini,qwen/qwen3.5-plus-02-15,z-ai/glm-5
-COUNCIL_STRATEGY=synthesis
-COUNCIL_OUTPUT_FILE=council_answer.md
-```
-
----
+Edit `.env` with your `OPENROUTER_API_KEY`.
 
 ### 3. Run the Council
 
@@ -75,109 +81,18 @@ COUNCIL_OUTPUT_FILE=council_answer.md
 python main.py
 ```
 
-This will:
-
-1. Send the query to all configured models
-2. Aggregate responses using the chosen strategy
-3. Save the result to a markdown file
-
----
-
-## Configuration
-
-Environment variables control behavior.
-
-| Variable            | Description                    |
-| ------------------- | ------------------------------ |
-| OPENROUTER_API_KEY  | API key for OpenRouter access  |
-| COUNCIL_MODELS      | Comma-separated list of models |
-| COUNCIL_STRATEGY    | `synthesis` or `voting`        |
-| COUNCIL_TIMEOUT     | Request timeout in seconds     |
-| COUNCIL_MAX_RETRIES | Retry attempts per model       |
-| COUNCIL_OUTPUT_FILE | Output markdown file           |
-
----
-
 ## Consensus Strategies
 
 ### Synthesis (default)
 
-A lead model combines all responses into a single comprehensive answer.
-
-Best for:
-
-- Complex reasoning
-- Research summaries
-- Multi-perspective analysis
+A lead model combines all responses into a single comprehensive answer. Best for research and analysis.
 
 ### Voting
 
-Selects the most common response among models.
-
-Best for:
-
-- Objective questions
-- Deterministic outputs
-- Quick consensus
-
----
-
-## Output Format
-
-Running the council generates a markdown file with:
-
-1. Original user query
-2. Final synthesized answer
-3. Individual model responses
-
-Example:
-
-```markdown
-# Council Response
-
-## Query
-
-What are the benefits of multi-LLM orchestration?
-
-## Final Answer
-
-...
-
-## Individual Responses
-
-### openai/gpt-4.1-mini
-
-...
-
-### qwen/qwen3.5-plus-02-15
-
-...
-```
-
----
-
-## Use Cases
-
-- Complex reasoning and analysis
-- Research summarization
-- AI safety through model cross-checking
-- Decision support systems
-- Benchmarking multiple LLMs
-
----
-
-## Future Enhancements
-
-- Weighted voting strategies
-- Model reliability scoring
-- Streaming responses
-- Cost tracking per model
-- Web UI dashboard
-
----
+Selects the most common response among models. Best for objective questions.
 
 ## License
 
 MIT License
 
----
+Made with [Neo](https://neo.com)
